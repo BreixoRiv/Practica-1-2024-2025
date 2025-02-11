@@ -1,0 +1,7 @@
+# ninja log v6
+76	122	1739270287216154885	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/main	a1986b757c0766ed
+1	48	1739270663453746631	build.ninja	d2cd8f7fff741032
+2	75	1739270287142275816	CMakeFiles/main.dir/main.c.o	527d2f0471625b8e
+0	22	1739270498221199711	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
+3	38	1739270287144365450	CMakeFiles/main.dir/static_list.c.o	6b23f33b5cea3444
+0	22	1739270620007000179	CMakeFiles/test_lists.dir/dynamic_list.c.o	e217b98e51f6a28e

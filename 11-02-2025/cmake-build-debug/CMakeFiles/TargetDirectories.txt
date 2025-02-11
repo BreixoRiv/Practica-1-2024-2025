@@ -1,0 +1,4 @@
+/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/cmake-build-debug/CMakeFiles/main.dir
+/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/cmake-build-debug/CMakeFiles/test_lists.dir
+/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
