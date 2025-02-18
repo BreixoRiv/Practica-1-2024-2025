@@ -100,13 +100,13 @@ void updateItem (tItemL i, tPosL p, tList *L) {
 
 //______________________________________________________________________________________________________________________
 
-tPosL findItem (tItemL i, tList L) {
+tPosL findItem (tConsoleId c, tList L) {
     tPosL q = 0;
     if (L.lastPos == LNULL) {
         return LNULL;
     }
     else {
-        while (L.data[q].seller != i.seller && L.data[q].consoleId != i.consoleId && L.data[q].consoleBrand != i.consoleBrand && L.data[q].consolePrice != i.consolePrice && L.data[q].bidCounter != i.bidCounter) {
+        while (L.data[q].seller != c) {
             q++;
         }
         return q;
