@@ -11,66 +11,66 @@
 
 //______________________________________________________________________________________________________________________
 
-void createEmptyList (tList L) {
-    L.lastPos = LNULL;
+void createEmptyList (tList *L) { //Crea una lista vacía L
+    L -> lastPos = LNULL;
 }
 
 //______________________________________________________________________________________________________________________
 
-bool isEmptyList (tList L) {
+bool isEmptyList (tList L) { //Comprueba si la lista está vacía o no, y devuelve TRUE si lo está y FALSE si no
     return (L.lastPos == LNULL);
 }
 
 //______________________________________________________________________________________________________________________
 
-tPosL first (tList L) {
+tPosL first (tList L) { //Devuelve la primera posición de la lista, que siempre es 0
     return 0;
 }
 
 //______________________________________________________________________________________________________________________
 
-tPosL last (tList L) {
+tPosL last (tList L) { //Devuelve la última posición de la lista, que siempre está almacenada en L.lastPos
     return L.lastPos;
 }
 
 //______________________________________________________________________________________________________________________
 
-tPosL next (tPosL p, tList L) {
+tPosL next (tPosL p, tList L) { //Devuelve la siguinte posición
     if (p == L.lastPos) {
-        return LNULL;
+        return LNULL; //LNULL en caso de que la posición indicada sea la última
     }
     else {
-        return p++;
+        return p++; //La posición insertada +1 en cualquier otro caso
     }
 }
 
 //______________________________________________________________________________________________________________________
 
-tPosL previous (tPosL p, tList L) {
+tPosL previous (tPosL p, tList L) { //Devuelve la posición anterior
     if (p == 0) {
-        return LNULL;
+        return LNULL; //LNULL en caso de que la posición indicada sea la primera
     }
     else {
-        return p--;
+        return p--; //La posición insertada -1 en cualquier otro caso
     }
 }
 
 //______________________________________________________________________________________________________________________
 
-bool insertItem (tItemL i, tPosL p, tList L) {
-    if (L.lastPos == MAX - 1) {
+bool insertItem (tItemL i, tPosL p, tList *L) { //Añade un item a la lista en la posición indicada
+    if (L -> lastPos == MAX - 1) {
         return false;
     }
     else {
-        L.lastPos++;
+        L -> lastPos++;
         if (p == LNULL) {
-            L.data[L.lastPos] = i;
+            L -> data[L -> lastPos] = i;
         }
         else {
-            for (tPosL q = L.lastPos; q > p; q--) {
-                L.data[q] = L.data[q - 1];
+            for (tPosL q = L -> lastPos; q > p; q--) {
+                L -> data[q] = L -> data[q - 1];
             }
-            L.data[p] = i;
+            L -> data[p] = i;
         }
         return true;
     }
@@ -78,12 +78,12 @@ bool insertItem (tItemL i, tPosL p, tList L) {
 
 //______________________________________________________________________________________________________________________
 
-void deleteAtPosition(tPosL p, tList L) {
-    for (tPosL q = p; q < L.lastPos; q++) {
-        L.data[q] = L.data[q + 1];
+void deleteAtPosition (tPosL p, tList *L) {
+    for (tPosL q = p; q < L -> lastPos; q++) {
+        L -> data[q] = L -> data[q + 1];
     }
 
-    L.lastPos--;
+    L -> lastPos--;
 }
 
 //______________________________________________________________________________________________________________________
@@ -94,17 +94,21 @@ tItemL getItem (tPosL p, tList L) {
 
 //______________________________________________________________________________________________________________________
 
-void updateItem (tItemL i, tPosL p, tList L) {
-    L.data[p] = i;
+void updateItem (tItemL i, tPosL p, tList *L) {
+    L -> data[p] = i;
 }
 
 //______________________________________________________________________________________________________________________
 
 tPosL findItem (tItemL i, tList L) {
+    tPosL q = 0;
     if (L.lastPos == LNULL) {
         return LNULL;
     }
     else {
-        for (tPosL q = 0; q < L.lastPos && (L.data[q] != i); q++);
+        while (L.data[q].seller != i.seller && L.data[q].consoleId != i.consoleId && L.data[q].consoleBrand != i.consoleBrand && L.data[q].consolePrice != i.consolePrice && L.data[q].bidCounter != i.bidCounter) {
+            q++;
+        }
+        return q;
     }
 }
