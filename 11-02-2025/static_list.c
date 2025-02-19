@@ -8,6 +8,7 @@
  */
 
 #include "static_list.h"
+#include <stdio.h>
 
 //______________________________________________________________________________________________________________________
 
@@ -40,7 +41,8 @@ tPosL next (tPosL p, tList L) { //Devuelve la siguinte posición
         return LNULL; //LNULL en caso de que la posición indicada sea la última
     }
     else {
-        return p++; //La posición insertada +1 en cualquier otro caso
+        p = p + 1;
+        return p; //La posición insertada +1 en cualquier otro caso
     }
 }
 
@@ -101,7 +103,7 @@ void updateItem (tItemL i, tPosL p, tList *L) {
 //______________________________________________________________________________________________________________________
 
 tPosL findItem (tConsoleId c, tList L) {
-    tPosL q = 0;
+    tPosL q = first(L);
     if (L.lastPos == LNULL) {
         return LNULL;
     }
