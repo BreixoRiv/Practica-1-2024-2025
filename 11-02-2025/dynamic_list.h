@@ -1,10 +1,10 @@
 /*
  * TITLE: PROGRAMMING II LABS
  * SUBTITLE: Practical 1
- * AUTHOR 1: ***************************** LOGIN 1: **********
- * AUTHOR 2: ***************************** LOGIN 2: **********
- * GROUP: *.*
- * DATE: ** / ** / **
+ * AUTHOR 1: González Monné, Marcos LOGIN 1: marcos.gonzalez.monne
+ * AUTHOR 2: Riveiro Primoy, Breixo LOGIN 2: breixo.riveirop
+ * GROUP: 1.4
+ * DATE: 06 / 03 / 25
  */
 
 #ifndef DYNAMIC_LIST_H
