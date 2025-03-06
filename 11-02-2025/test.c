@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "static_list.h"
+
 #ifdef DYNAMIC_LIST
 #include "dynamic_list.h"
 #endif

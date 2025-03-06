@@ -1,73 +1,109 @@
 /*
  * TITLE: PROGRAMMING II LABS
  * SUBTITLE: Practical 1
- * AUTHOR 1: ***************************** LOGIN 1: **********
- * AUTHOR 2: ***************************** LOGIN 2: **********
- * GROUP: *.*
- * DATE: ** / ** / **
+ * AUTHOR 1: González Monné, Marcos LOGIN 1: marcos.gonzalez.monne
+ * AUTHOR 2: Riveiro Primoy, Breixo LOGIN 2: breixo.riveirop
+ * GROUP: 1.4
+ * DATE: 06 / 03 / 25
  */
 
 #include "static_list.h"
 #include <string.h>
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Inicializar una lista vacía
+ * Entradas: La lista a inicializar
+ * Salidas: La lista inicializada
+ * Postcondiciones: La lista queda inicializada y vacía
+ */
 
-void createEmptyList (tList *L) { //Crea una lista vacía L
+void createEmptyList (tList *L) {
     L -> lastPos = LNULL;
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Comprobar si la lista está vacía
+ * Entrada: La lista a comprobar
+ * Salida: Devuelve TRUE si la lista está vacía y FALSE si no lo está
+ * Precondición: La lista debe estar inicializada por el createEmptyList
+ */
 
-bool isEmptyList (tList L) { //Comprueba si la lista está vacía o no, y devuelve TRUE si lo está y FALSE si no
+bool isEmptyList (tList L) {
     return (L.lastPos == LNULL);
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener la primera posición de la lista
+ * Entrada: La lista de la que se obtendrá la primera posición
+ * Salida: La primera posición de la lista (que siempre es 0 en una lista estática)
+ * Precondiciones: La lista debe estar inicializada por el createEmptyList y no puede estar vacía
+ */
 
-tPosL first (tList L) { //Devuelve la primera posición de la lista, que siempre es 0
+tPosL first (tList L) {
     return 0;
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener la última posición de la lista
+ * Entrada: La lista de la que se obtendrá la última posición
+ * Salida: La última posición de la lista (la cual se almacena en lastPos en una lista estática)
+ * Precondiciones: La lista debe estar inicializada por el createEmptyList y no puede estar vacía
+ */
 
-tPosL last (tList L) { //Devuelve la última posición de la lista, que siempre está almacenada en L.lastPos
+tPosL last (tList L) {
     return L.lastPos;
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener la posición siguiente a la indicada
+ * Entrada: La lista y la posición en la lista de la que se quiere obtener la siguiente
+ * Salida: La siguiente posición a la indicada o LNULL si la posición indicada es la última
+ * Precondiciones: La lista debe estar inicializada por el createEmptyList y la posición indicada tiene que ser válida
+ */
 
-tPosL next (tPosL p, tList L) { //Devuelve la siguinte posición
+tPosL next (tPosL p, tList L) {
     if (p == L.lastPos) {
-        return LNULL; //LNULL en caso de que la posición indicada sea la última
+        return LNULL;
     }
     else {
-        return ++p; //La posición insertada +1 en cualquier otro caso
+        return ++p;
     }
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener la posición anterior a la indicada
+ * Entrada: La lista y la posición en la lista de la que se quiere obtener la anterior
+ * Salida: La posición anterior a la indicada o LNULL si la posición indicada es la primera
+ * Precondiciones: La lista debe estar inicializada por el createEmptyList y la posición indicada tiene que ser válida
+ */
 
-tPosL previous (tPosL p, tList L) { //Devuelve la posición anterior
+tPosL previous (tPosL p, tList L) {
     if (p == 0) {
-        return LNULL; //LNULL en caso de que la posición indicada sea la primera
+        return LNULL;
     }
     else {
-        return --p; //La posición insertada -1 en cualquier otro caso
+        return --p;
     }
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Añadir un item a la lista en la posición indicada
+ * Entrada: El ítem a añadir, la posición en la que se añadirá y la lista en la que se añadirá
+ * Salida: Devuelve TRUE junto con la lista con el ítem añadido en la posición indicada si se pudo añadir correctamente y false si no
+ * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada ser válida o nula
+ * Postcondición: Las posiciones de los ítems posteriores al insertado pueden variar
+ */
 
-bool insertItem (tItemL i, tPosL p, tList *L) { //Añade un item a la lista en la posición indicada
-    if (L -> lastPos == MAX - 1) { //Si la lista ya contiene el máximo número de entradas devuelve FALSE
+bool insertItem (tItemL i, tPosL p, tList *L) {
+    if (L -> lastPos == MAX - 1) {
         return false;
     }
-    else { //En caso contrario, añadirá el nuevo ítem en uno de los casos siguientes, aumentando la última posicíon en 1:
+    else {
         L -> lastPos++;
-        if (p == LNULL) { //Si se introduce LNULL como valor de la posición se añadirá como último ítem de la lista
+        if (p == LNULL) {
             L -> data[L -> lastPos] = i;
         }
-        else { //En caso contrario se buscará la posición indicada, se moverán todos los ítems siguientes una posición más y se añadirá el ítem en la posición indicada, devolviendo TRUE al final
+        else {
             for (tPosL q = L -> lastPos; q > p; q--) {
                 L -> data[q] = L -> data[q - 1];
             }
@@ -78,8 +114,14 @@ bool insertItem (tItemL i, tPosL p, tList *L) { //Añade un item a la lista en l
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Eliminar el ítem correspondiente a la posición indicada de la lista
+ * Entrada: La posición del ítem que se va a eliminar y la lista de la que se va a eliminar
+ * Salida: La lista con el ítem eliminado
+ * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada ser válida
+ * Postcondición: Las posiciones de los ítems anteriores al eliminado pueden variar
+ */
 
-void deleteAtPosition (tPosL p, tList *L) { //Se elimina el ítem de la posición indicada, moviendo todos los ítems que lo siguieran una casilla menos y se reduce en 1 unidad el valor de la última posición
+void deleteAtPosition (tPosL p, tList *L) {
     for (tPosL q = p; q < L -> lastPos; q++) {
         L -> data[q] = L -> data[q + 1];
     }
@@ -88,32 +130,49 @@ void deleteAtPosition (tPosL p, tList *L) { //Se elimina el ítem de la posició
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener el ítem correspondiente a una posición
+ * Entrada: La posición del ítem que se quiere obtener y la lista de la que se va a obtener el ítem
+ * Salida: El ítem correspondiente a la posición indicada en la lista
+ * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada ser válida
+ */
 
-tItemL getItem (tPosL p, tList L) { //Devuelve el ítem que ocupa la posición indicada
+tItemL getItem (tPosL p, tList L) {
     return L.data[p];
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Editar el contenido de un ítem
+ * Entrada: Un ítem con los valores modificados, la posición del ítem que se va a editar y la lista en la que se va a editar
+ * Salida: La lista con el ítem modificado
+ * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada es válida
+ * Postcondición: El orden de los elementos de la lista no se puede modificar
+ */
 
-void updateItem (tItemL i, tPosL p, tList *L) { //Cambia los datos del ítem en la posición indicada por los indicados
+void updateItem (tItemL i, tPosL p, tList *L) {
     L -> data[p] = i;
 }
 
 //______________________________________________________________________________________________________________________
+/* Objetivo: Obtener la posición de un ítem
+ * Entrada: El ítem que se quiere encontrar y la lista en la que se buscará
+ * Salida: La posición del ítem buscado, en caso de que exista, o LNULL en caso de no existir
+ * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada es válida
+ */
 
-tPosL findItem (tConsoleId c, tList L) { //Busca la posición en la que se encuentra el ítem deseado
+tPosL findItem (tConsoleId c, tList L) {
     tPosL q = 0;
-    if (L.lastPos == LNULL) { //Si la última posición es LNULL la lista está vacía, por lo que se devuelve LNULL
+
+    if (L.lastPos == LNULL) {
         return LNULL;
     }
-    else { //Si la lista no está vacía, se busca el ítem
+    else {
         while (q < L.lastPos + 1 && strcmp(L.data[q].consoleId, c) != 0) {
             q++;
         }
-        if (q == L.lastPos + 1) { //Si no se encuentra ningún ítem como el indicado, el valor de q será 1 más que la última posición, entonces se devolverá LNULL para indicar que no existe dicho ítem
+        if (q == L.lastPos + 1) {
             return LNULL;
         }
-        else { //Si se encuentra el ítem en el while, se devuelve la posición
+        else {
             return q;
         }
     }
