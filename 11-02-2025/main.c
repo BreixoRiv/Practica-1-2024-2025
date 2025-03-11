@@ -21,7 +21,7 @@
 #include "static_list.h"
 #endif
 
-new () {
+void new () {
 
 }
 

@@ -6,9 +6,9 @@
 #ifdef DYNAMIC_LIST
 #include "dynamic_list.h"
 #endif
-#ifdef STATIC_LIST
-#include "static_list.h"
-#endif
+//#ifdef STATIC_LIST
+//#include "static_list.h"
+//#endif
 
 
 void print_list(tList list) {
