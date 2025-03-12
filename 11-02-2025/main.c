@@ -1,10 +1,10 @@
 /*
 * TITLE: PROGRAMMING II LABS
  * SUBTITLE: Practical 1
- * AUTHOR 1: ***************************** LOGIN 1: **********
- * AUTHOR 2: ***************************** LOGIN 2: **********
- * GROUP: *.*
- * DATE: ** / ** / **
+ * AUTHOR 1: González Monné, Marcos LOGIN 1: marcos.gonzalez.monne
+ * AUTHOR 2: Riveiro Primoy, Breixo LOGIN 2: breixo.riveirop
+ * GROUP: 1.4
+ * DATE: 06 / 03 / 25
  */
 
 #include <stdio.h>
@@ -21,10 +21,50 @@
 #include "static_list.h"
 #endif
 
-new () {
+//______________________________________________________________________________________________________________________
+
+void new (tItemL i, tList *L) {
+    i.bidCounter = 0; //Ajusta el contador de pujas a 0
+
+    if (findItem(i.consoleId, L) == LNULL && insertItem(i, LNULL, L) == true) { //Si no existe el ítem y se pudo insertar, se imprime lo que se insertó
+        printf("* New: console %s seller/bidder %s brand %d price %f\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice);
+    }
+    else { //Si no fue posible, se imprime un error;
+        printf("+ Error: New not possible\n");
+    }
+}
+
+//______________________________________________________________________________________________________________________
+
+void delete (tItemL i, tList *L) {
+    if (findItem(i.consoleId, L) != LNULL) {
+        printf("* Delete: console %s seller %s brand %d price %f bids %d\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice, i.bidCounter);
+        deleteAtPosition(findItem(i.consoleId, L), L);
+    }
+    else {
+        printf("+ Error: Delete not possible\n");
+    }
+}
+
+//______________________________________________________________________________________________________________________
+
+void bid (tItemL i, tList *L) {
+    if (findItem(i.consoleId, L) != LNULL) {
+        updateItem(i, findItem(i.consoleId, L), L);
+        printf("* Bid: console %s seller %s brand %d price %f bids %d\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice, i.bidCounter);
+    }
+    else {
+        printf("+ Error: Bid not possible\n");
+    }
+}
+
+//______________________________________________________________________________________________________________________
+
+void stats () {
 
 }
 
+//______________________________________________________________________________________________________________________
 
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4) {
 
@@ -42,6 +82,8 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             break;
     }
 }
+
+//______________________________________________________________________________________________________________________
 
 void readTasks(char *filename) {
     FILE *f = NULL;
@@ -71,6 +113,7 @@ void readTasks(char *filename) {
     }
 }
 
+//______________________________________________________________________________________________________________________
 
 int main(int nargs, char **args) {
 
@@ -88,8 +131,3 @@ int main(int nargs, char **args) {
 
     return 0;
 }
-
-
-
-
-

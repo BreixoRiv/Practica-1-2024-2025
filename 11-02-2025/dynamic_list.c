@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//______________________________________________________________________________________________________________________
+
 /* Objetivo: Inicializar una lista vacía
  * Entradas: La lista a inicializar
  * Salidas: La lista inicializada
