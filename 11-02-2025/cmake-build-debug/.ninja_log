@@ -1,41 +1,11 @@
 # ninja log v6
-76	122	1739270287216154885	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/main	a1986b757c0766ed
-6	54	1739871781610730960	build.ninja	d2cd8f7fff741032
-2	75	1739270287142275816	CMakeFiles/main.dir/main.c.o	527d2f0471625b8e
-2	35	1740049485452526005	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-3	38	1739270287144365450	CMakeFiles/main.dir/static_list.c.o	6b23f33b5cea3444
-35	62	1740049590951946350	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	34	1740049590918700682	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-0	22	1739270620007000179	CMakeFiles/test_lists.dir/dynamic_list.c.o	e217b98e51f6a28e
-1	42	1740049597234905282	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-42	71	1740049597275342597	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-2	144	1740049656890974962	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-144	175	1740049657033645468	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	38	1740049735619445068	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-38	66	1740049735655759017	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	35	1740049920200653762	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-35	66	1740049920234435674	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-2	140	1740050027054965022	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-141	224	1740050027193948954	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-6	149	1740050192655404574	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-149	236	1740050192799124535	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-6	195	1740165704205796218	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-195	319	1740165704395085818	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-2	42	1740165733296656334	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-42	69	1740165733336841495	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-2	40	1740165744768462735	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
-40	67	1740165744806849605	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-2	152	1740165922208445713	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-152	238	1740165922358626234	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	37	1740165952007096526	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-37	65	1740165952043280730	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-6	191	1740166351621204419	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-191	305	1740166351806741644	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	33	1740166366602032510	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-34	61	1740166366634389542	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	187	1740167115901603855	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-188	321	1740167116088073259	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	33	1740167163636689118	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-33	60	1740167163667960463	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
-1	148	1740167480066320334	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
-149	234	1740167480213691060	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
+1	30	1741690400988851780	CMakeFiles/test_lists.dir/test.c.o	6d29e12d062b2902
+1	30	1741690400989093160	CMakeFiles/test_lists.dir/static_list.c.o	29eb5a33fa06de1a
+156	231	1741690173332739726	/Users/breixo/Downloads/P1Marcos/bin/test_lists	856756b41c155c47
+1	30	1741690330235968947	CMakeFiles/test_lists.dir/dynamic_list.c.o	e217b98e51f6a28e
+30	61	1741690401017631047	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	a8b05d33ce625c26
+2	34	1741690478140156096	CMakeFiles/test_lists.dir/test.c.o	bb872b06529d2eb
+3	36	1741690478140463470	CMakeFiles/test_lists.dir/dynamic_list.c.o	e217b98e51f6a28e
+36	62	1741690478174178161	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	d4be651989a3460d
+2	77	1741690545022437369	CMakeFiles/test_lists.dir/dynamic_list.c.o	e217b98e51f6a28e
+78	109	1741690545098695545	/Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º Cuatrimestre/Programación II/Programas/Prácticas/P1/bin/test_lists	d4be651989a3460d

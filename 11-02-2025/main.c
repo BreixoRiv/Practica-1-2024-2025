@@ -1,10 +1,10 @@
 /*
- * TITLE: PROGRAMMING II LABS
+* TITLE: PROGRAMMING II LABS
  * SUBTITLE: Practical 1
- * AUTHOR 1: González Monné, Marcos LOGIN 1: marcos.gonzalez.monne
- * AUTHOR 2: Riveiro Primoy, Breixo LOGIN 2: breixo.riveirop
- * GROUP: 1.4
- * DATE: 06 / 03 / 25
+ * AUTHOR 1: ***************************** LOGIN 1: **********
+ * AUTHOR 2: ***************************** LOGIN 2: **********
+ * GROUP: *.*
+ * DATE: ** / ** / **
  */
 
 #include <stdio.h>
@@ -21,7 +21,7 @@
 #include "static_list.h"
 #endif
 
-void new () {
+new () {
 
 }
 
@@ -31,7 +31,7 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
     switch (command) {
         case 'N':
             printf("Command: %s %c %s %s %s %s\n", commandNumber, command, param1, param2, param3, param4);
-            break;
+        break;
         case 'D':
             break;
         case 'B':
@@ -79,16 +79,15 @@ int main(int nargs, char **args) {
     if (nargs > 1) {
         file_name = args[1];
     } else {
-        #ifdef INPUT_FILE
+#ifdef INPUT_FILE
         file_name = INPUT_FILE;
-        #endif
+#endif
     }
 
     readTasks(file_name);
 
     return 0;
 }
-
 
 
 
