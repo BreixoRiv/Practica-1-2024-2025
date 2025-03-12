@@ -55,7 +55,7 @@ tPosL first (tList L) {
 tPosL last (tList L) {
     tPosL q = L;
 
-    while (q -> next != LNULL) {
+    while (q -> next != LNULL) { //Recorre la lista hasta llegar a la última posición (la anterior a una posición nula)
         q = q -> next;
     }
     return q;
@@ -83,7 +83,7 @@ tPosL previous (tPosL p, tList L) {
     if (p == L) {
         return LNULL;
     }
-    else {
+    else { //Si la posición no es la primera, recorre la lista hasta llegar a la posición anterior (en la que el valor de next es la posición indicada)
         tPosL q = L;
 
         while (q -> next != p) {
@@ -102,7 +102,7 @@ tPosL previous (tPosL p, tList L) {
  */
 
 bool createNode (tPosL* p) {
-    *p = malloc(sizeof(**p));
+    *p = malloc(sizeof(**p)); //Reserva memoria para un nodo
     return *p != LNULL;
 }
 
@@ -123,23 +123,18 @@ bool insertItem (tItemL i, tPosL p, tList *L) {
     else {
         q -> data = i;
         q -> next = LNULL;
+        r = *L;
 
-        if (*L == LNULL) {
+        if (*L == LNULL) { //Si la lista está vacía, se inserta en la primera posición
             *L = q;
         }
-        else if (p == LNULL) {
-            r = *L;
-
+        else if (p == LNULL) { //Si la posición indicada es nula, se añade a la última posición
             while (r -> next != LNULL) {
                 r = r -> next;
             }
             r -> next = q;
         }
-        else if (p == *L) {
-            q -> next = *L;
-            *L = q;
-        }
-        else {
+        else { //En cualquier otro caso, se añade en la posición indicada y se mueven los ítems siguientes
             q -> data = p -> data;
             p -> data = i;
             q -> next = p -> next;
@@ -160,24 +155,24 @@ bool insertItem (tItemL i, tPosL p, tList *L) {
 void deleteAtPosition (tPosL p, tList *L) {
     tPosL q;
 
-    if (p == first(*L)) {
+    if (p == first(*L)) { //Si la posición es la primera, se sobreescribe el primer ítem con el segundo
         *L = (*L) -> next;
     }
-    else if (p -> next == LNULL) {
+    else if (p -> next == LNULL) { //Si la posición es la última, se elimina el último ítem
         q = *L;
 
-        while (q -> next != p) {
+        while (q -> next != p) { //Recorre la lista para encontrar el penúltimo ítem
             q = q -> next;
         }
         q -> next = LNULL;
     }
-    else {
+    else { //En cualquier otro caso, se sobreescribe el ítem con el siguiente
         q = p -> next;
         p -> data = q -> data;
         p -> next = q -> next;
         p = q;
     }
-    free(p);
+    free(p); //Libera la memoria del ítem eliminado
 }
 
 //______________________________________________________________________________________________________________________
@@ -213,7 +208,7 @@ void updateItem (tItemL i, tPosL p, tList *L) {
 tPosL findItem (tConsoleId c, tList L) {
     tPosL q = L;
 
-    while (q != LNULL && strcmp(q -> data.consoleId, c) != 0) {
+    while (q != LNULL && strcmp(q -> data.consoleId, c) != 0) { //Recorre la lista hasta encontrar un ítem igual al indicado
         q = q -> next;
     }
 
