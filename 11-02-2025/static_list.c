@@ -100,10 +100,10 @@ bool insertItem (tItemL i, tPosL p, tList *L) {
     }
     else {
         L -> lastPos++;
-        if (p == LNULL) {
+        if (p == LNULL) { //Si la posición es nula añade el ítem al final
             L -> data[L -> lastPos] = i;
         }
-        else {
+        else { //Si no lo es, lo añade en la posición indicada y desplaza los ítems que se encuentren después
             for (tPosL q = L -> lastPos; q > p; q--) {
                 L -> data[q] = L -> data[q - 1];
             }
@@ -122,7 +122,7 @@ bool insertItem (tItemL i, tPosL p, tList *L) {
  */
 
 void deleteAtPosition (tPosL p, tList *L) {
-    for (tPosL q = p; q < L -> lastPos; q++) {
+    for (tPosL q = p; q < L -> lastPos; q++) { //Recorre la lista hasta llegar al ítem indicado y lo elimina moviendo el resto de ítems
         L -> data[q] = L -> data[q + 1];
     }
 
@@ -165,14 +165,14 @@ tPosL findItem (tConsoleId c, tList L) {
     if (L.lastPos == LNULL) {
         return LNULL;
     }
-    else {
+    else { //Recorre la lista hasta encontrar el ítem con el id indicado
         while (q < L.lastPos + 1 && strcmp(L.data[q].consoleId, c) != 0) {
             q++;
         }
-        if (q == L.lastPos + 1) {
+        if (q == L.lastPos + 1) { //Si no lo encuentra devuelve LNULL
             return LNULL;
         }
-        else {
+        else { //Si lo encuentra devuelve la posición
             return q;
         }
     }
