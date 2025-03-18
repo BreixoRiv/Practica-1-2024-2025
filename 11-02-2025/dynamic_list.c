@@ -4,7 +4,7 @@
  * AUTHOR 1: González Monné, Marcos LOGIN 1: marcos.gonzalez.monne
  * AUTHOR 2: Riveiro Primoy, Breixo LOGIN 2: breixo.riveirop
  * GROUP: 1.4
- * DATE: 06 / 03 / 25
+ * DATE: 13 / 03 / 25
  */
 
 #include "dynamic_list.h"
@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//______________________________________________________________________________________________________________________
 
 /* Objetivo: Inicializar una lista vacía
  * Entradas: La lista a inicializar
