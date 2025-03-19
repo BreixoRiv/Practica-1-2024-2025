@@ -184,7 +184,7 @@ void deleteAtPosition (tPosL p, tList *L) {
  */
 
 tItemL getItem (tPosL p, tList L) {
-    return p -> data;
+    return (p -> data);
 }
 
 //______________________________________________________________________________________________________________________

@@ -50,14 +50,14 @@ cmake_ninja_workdir = /Users/breixo/Library/CloudStorage/OneDrive-Universidadeda
 build cmake_object_order_depends_target_main: phony || .
 
 build CMakeFiles/main.dir/main.c.o: C_COMPILER__main_unscanned_Debug /Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º$ Cuatrimestre/Programación$ II/Programas/Prácticas/P1/main.c || cmake_object_order_depends_target_main
-  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
+  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"delete.txt\"
   DEP_FILE = CMakeFiles/main.dir/main.c.o.d
   FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics -Wall -Wextra
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir
 
 build CMakeFiles/main.dir/dynamic_list.c.o: C_COMPILER__main_unscanned_Debug /Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º$ Cuatrimestre/Programación$ II/Programas/Prácticas/P1/dynamic_list.c || cmake_object_order_depends_target_main
-  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
+  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"delete.txt\"
   DEP_FILE = CMakeFiles/main.dir/dynamic_list.c.o.d
   FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics -Wall -Wextra
   OBJECT_DIR = CMakeFiles/main.dir
@@ -89,14 +89,14 @@ build /Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documen
 build cmake_object_order_depends_target_test_lists: phony || .
 
 build CMakeFiles/test_lists.dir/test.c.o: C_COMPILER__test_lists_unscanned_Debug /Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º$ Cuatrimestre/Programación$ II/Programas/Prácticas/P1/test.c || cmake_object_order_depends_target_test_lists
-  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
+  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"delete.txt\"
   DEP_FILE = CMakeFiles/test_lists.dir/test.c.o.d
   FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics -Wall -Wextra
   OBJECT_DIR = CMakeFiles/test_lists.dir
   OBJECT_FILE_DIR = CMakeFiles/test_lists.dir
 
 build CMakeFiles/test_lists.dir/dynamic_list.c.o: C_COMPILER__test_lists_unscanned_Debug /Users/breixo/Library/CloudStorage/OneDrive-UniversidadedaCoruña/Documentos/Clase/2024_25/2º$ Cuatrimestre/Programación$ II/Programas/Prácticas/P1/dynamic_list.c || cmake_object_order_depends_target_test_lists
-  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
+  DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"delete.txt\"
   DEP_FILE = CMakeFiles/test_lists.dir/dynamic_list.c.o.d
   FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics -Wall -Wextra
   OBJECT_DIR = CMakeFiles/test_lists.dir

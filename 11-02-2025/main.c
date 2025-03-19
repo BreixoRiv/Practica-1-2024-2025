@@ -21,14 +21,38 @@
 #include "static_list.h"
 #endif
 
+//______________________________________________________________________________________________________________________
+
+void assignItem(tItemL *i, char *param1, char *param2, char *param3, char *param4) {
+    strcpy(i -> consoleId, param1);
+    strcpy(i -> seller, param2);
+
+    if (strcmp(param3, "sega") == 0) {
+        i -> consoleBrand = 1;
+    }
+    else {
+        i -> consoleBrand = 0;
+    }
+    i -> consolePrice = atof(param4);
+}
 
 //______________________________________________________________________________________________________________________
 
-void new (tItemL i, tList *L) {
+void new (char *param1, char *param2, char *param3, char *param4, tList *L) {
+    tItemL i;
+    assignItem(&i, param1, param2, param3, param4); //Asigna los valores a los campos del ítem
+    char brand[10];
+
     i.bidCounter = 0; //Ajusta el contador de pujas a 0
 
     if (findItem(i.consoleId, *L) == LNULL && insertItem(i, LNULL, L) == true) { //Si no existe el ítem y se pudo insertar, se imprime lo que se insertó
-        printf("* New: console %s seller/bidder %s brand %d price %f\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice);
+        if (i.consoleBrand == 0) {
+            strcpy(brand, "nintendo");
+        }
+        else {
+            strcpy(brand, "sega");
+        }
+        printf("* New: console %s seller %s brand %s price %.2f\n", i.consoleId, i.seller, brand, i.consolePrice);
     }
     else { //Si no fue posible, se imprime un error;
         printf("+ Error: New not possible\n");
@@ -37,10 +61,20 @@ void new (tItemL i, tList *L) {
 
 //______________________________________________________________________________________________________________________
 
-void delete (tItemL i, tList *L) {
-    if (findItem(i.consoleId, *L) != LNULL) {
-        printf("* Delete: console %s seller %s brand %d price %f bids %d\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice, i.bidCounter);
-        deleteAtPosition(findItem(i.consoleId, *L), L);
+void delete (char *consoleId, tList *L) {
+    char brandC[10];
+    tPosL p = findItem(consoleId, *L);
+    tItemL i;
+    if (p != LNULL) {
+        i = getItem(p, *L);
+        if (i.consoleBrand == 0) {
+            strcpy(brandC, "nintendo");
+        }
+        else {
+            strcpy(brandC, "sega");
+        }
+        printf("* Delete: console %s seller %s brand %s price %.2f bids %d\n", consoleId, i.seller, brandC, i.consolePrice, i.bidCounter);
+        deleteAtPosition(p, L);
     }
     else {
         printf("+ Error: Delete not possible\n");
@@ -49,10 +83,23 @@ void delete (tItemL i, tList *L) {
 
 //______________________________________________________________________________________________________________________
 
-void bid (tItemL i, tList *L) {
-    if (findItem(i.consoleId, *L) != LNULL) {
+void bid (char *consoleId, char *bidder, char *price, tList *L) {
+    tPosL p = findItem(consoleId, *L);
+    tItemL i = getItem(p, *L);
+    char brand[10];
+
+    if (findItem(consoleId, *L) != LNULL && strcmp(i.seller, bidder) != 0 && i.consolePrice < atof(price)) {
+        i.consolePrice = atof(price);
+        i.bidCounter++;
         updateItem(i, findItem(i.consoleId, *L), L);
-        printf("* Bid: console %s seller %s brand %d price %f bids %d\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice, i.bidCounter);
+        if (i.consoleBrand == 0) {
+            strcpy(brand, "nintendo");
+        }
+        else {
+            strcpy(brand, "sega");
+        }
+
+        printf("* Bid: console %s seller %s brand %s price %.2f bids %d\n", i.consoleId, i.seller, brand, i.consolePrice, i.bidCounter);
     }
     else {
         printf("+ Error: Bid not possible\n");
@@ -65,25 +112,45 @@ void stats (tList L) {
     if (!isEmptyList(L)) {
         tPosL p = first(L);
         tItemL i;
+        char brand[10];
+
         int nintendo = 0;
         int sega = 0;
         float pNintendo = 0;
         float pSega = 0;
+        float medNintendo = 0;
+        float medSega = 0;
+
         while (p != LNULL) {
             i = getItem(p, L);
-            printf("Console %s seller %s brand %d, price %f bids %d\n", i.consoleId, i.seller, i.consoleBrand, i.consolePrice, i.bidCounter);
-            if (i.consoleBrand == 1) {
+            if (i.consoleBrand == 0) {
+                strcpy(brand, "nintendo");
+            }
+            else {
+                strcpy(brand, "sega");
+            }
+            printf("Console %s seller %s brand %s price %.2f bids %d\n", i.consoleId, i.seller, brand, i.consolePrice, i.bidCounter);
+            if (i.consoleBrand == 0) {
                 nintendo++;
                 pNintendo += i.consolePrice;
             }
-            else if (i.consoleBrand == 2) {
+            else if (i.consoleBrand == 1) {
                 sega++;
                 pSega += i.consolePrice;
             }
+            p = next(p, L);
         }
-        printf("Brand     Consoles    Price  Average\n");
-        printf("Nintendo  %8d %8.2f %8.2f\n", nintendo, pNintendo, pNintendo/nintendo);
-        printf("Sega      %8d %8.2f %8.2f\n", sega, pSega, pSega/sega);
+
+        if (nintendo != 0) {
+            medNintendo = pNintendo / nintendo;
+        }
+
+        if (sega != 0) {
+            medSega = pSega / sega;
+        }
+        printf("\nBrand     Consoles    Price  Average\n");
+        printf("Nintendo  %8d %8.2f %8.2f\n", nintendo, pNintendo, medNintendo);
+        printf("Sega      %8d %8.2f %8.2f\n", sega, pSega, medSega);
     }
     else {
         printf("+ Error: Stats not possible\n");
@@ -92,29 +159,28 @@ void stats (tList L) {
 
 //______________________________________________________________________________________________________________________
 
-void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4) {
-    tItemL i;
-    strcpy(i.consoleId, param1);
-    strcpy(i.seller, param2);
-    i.consoleBrand = atoi(param3);
-    i.consolePrice = atof(param4);
-    tList L;
-
-    createEmptyList(&L);
+void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
 
     switch (command) {
         case 'N':
-            printf("Command: %s %c %s %s %s %s\n", commandNumber, command, param1, param2, param3, param4);
-            new(i, &L);
+            printf("********************\n");
+            printf("%s %c: console %s seller %s brand %s price %s\n", commandNumber, command, param1, param2, param3, param4);
+            new(param1, param2, param3, param4, L);
         break;
         case 'D':
-            delete(i, &L);
+            printf("********************\n");
+            printf("%s %c: console %s\n", commandNumber, command, param1);
+            delete(param1, L);
             break;
         case 'B':
-            bid(i, &L);
+            printf("********************\n");
+            printf("%s %c: console %s bidder %s price %.2f\n", commandNumber, command, param1, param2, atof(param3));
+            bid(param1, param2, param3, L);
             break;
         case 'S':
-            stats(L);
+            printf("********************\n");
+            printf("%s %c\n", commandNumber, command);
+            stats(*L);
             break;
         default:
             break;
@@ -123,7 +189,7 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
 
 //______________________________________________________________________________________________________________________
 
-void readTasks(char *filename) {
+void readTasks(char *filename, tList *L) {
     FILE *f = NULL;
     char *commandNumber, *command, *param1, *param2, *param3, *param4;
     const char delimiters[] = " \n\r";
@@ -141,7 +207,8 @@ void readTasks(char *filename) {
             param3 = strtok(NULL, delimiters);
             param4 = strtok(NULL, delimiters);
 
-            processCommand(commandNumber, command[0], param1, param2, param3, param4);
+            processCommand(commandNumber, command[0], param1, param2, param3, param4, L);
+
         }
 
         fclose(f);
@@ -154,8 +221,10 @@ void readTasks(char *filename) {
 //______________________________________________________________________________________________________________________
 
 int main(int nargs, char **args) {
+    tList L;
+    createEmptyList(&L);
 
-    char *file_name = "new.txt";
+    char *file_name = "delete.txt";
 
     if (nargs > 1) {
         file_name = args[1];
@@ -165,7 +234,7 @@ int main(int nargs, char **args) {
 #endif
     }
 
-    readTasks(file_name);
+    readTasks(file_name, &L);
 
     return 0;
 }
