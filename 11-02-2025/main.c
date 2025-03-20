@@ -21,6 +21,7 @@
 #include "static_list.h"
 #endif
 
+
 //______________________________________________________________________________________________________________________
 /* Tipo: Modificadora
  * Objetivo: Asignar a una variable ítem los valores de los parámetros
@@ -227,11 +228,6 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             printf("********************\n");
             printf("%s %c\n", commandNumber, command);
             stats(*L);
-            break;
-        default:
-            break;
-    }
-}
 
 //______________________________________________________________________________________________________________________
 /* Tipo: Observadora
