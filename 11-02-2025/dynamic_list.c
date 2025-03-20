@@ -13,7 +13,6 @@
 #include <string.h>
 
 //______________________________________________________________________________________________________________________
-
 /* Objetivo: Inicializar una lista vacía
  * Entradas: La lista a inicializar
  * Salidas: La lista inicializada
@@ -150,7 +149,7 @@ bool insertItem (tItemL i, tPosL p, tList *L) {
  * Entrada: La posición del ítem que se va a eliminar y la lista de la que se va a eliminar
  * Salida: La lista con el ítem eliminado
  * Precondición: La lista debe estar inicializada por el createEmptyList y la posición indicada ser válida
- * Postcondición: Las posiciones de los ítems anteriores al eliminado pueden variar
+ * Postcondición: Las posiciones de los ítems posteriores al eliminado pueden variar
  */
 
 void deleteAtPosition (tPosL p, tList *L) {
