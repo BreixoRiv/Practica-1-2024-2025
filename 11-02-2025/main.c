@@ -22,7 +22,8 @@
 #endif
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Asignar a una variable ítem los valores de los parámetros
+/* Tipo: Modificadora
+ * Objetivo: Asignar a una variable ítem los valores de los parámetros
  * Entrada: Cada uno de los parámetros a asignar y el ítem vacío
  * Salida: El ítem con los valores asignados
  * Precondiciones: El ítem debe estar inicializado
@@ -45,7 +46,8 @@ void assignItem(tItemL *i, char *Id, char *seller, char *brand, char *price, int
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Obtener el nombre de la marca a partir del número asociado a esta
+/* Tipo: Observadora
+ * Objetivo: Obtener el nombre de la marca a partir del número asociado a esta
  * Entrada: La variable donde se almacenará el nombre de la marca y el número asociado a la marca
  * Salida: El nombre de la marca
  * Precondición: El número asociado a la marca debe ser 0 o 1
@@ -61,7 +63,8 @@ void brandName(char *brand, tConsoleBrand itemBrand) {
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Añadir un nuevo ítem a la lista indicada
+/* Tipo: Modificadora
+ * Objetivo: Añadir un nuevo ítem a la lista indicada
  * Entrada: Los parámetros del ítem a añadir y la lista en la que se añadirán
  * Salida: La lista con el ítem añadido
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
@@ -84,7 +87,8 @@ void new (char *param1, char *param2, char *param3, char *param4, tList *L) {
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Eliminar un ítem de la lista indicada
+/* Tipo: Destructora
+ * Objetivo: Eliminar un ítem de la lista indicada
  * Entrada: El identificador del ítem a eliminar y la lista de la que se eliminará
  * Salida: La lista con el ítem eliminado
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
@@ -110,7 +114,8 @@ void delete (char *consoleId, tList *L) {
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Añadir una puja a un ítem de la lista indicada
+/* Tipo: Modificadora
+ * Objetivo: Añadir una puja a un ítem de la lista indicada
  * Entrada: El identificador del ítem a pujar, el pujador, el precio de la puja y la lista en la que se modificará el ítem
  * Salida: La lista con el ítem modificado
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
@@ -137,7 +142,8 @@ void bid (char *consoleId, char *bidder, char *price, tList *L) {
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Mostrar las estadísticas de la lista indicada
+/* Tipo: Observadora
+ * Objetivo: Mostrar las estadísticas de la lista indicada
  * Entrada: La lista de la que se mostrarán las estadísticas
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
  */
@@ -193,7 +199,8 @@ void stats (tList L) {
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Procesar los comandos leídos del archivo de entrada
+/* Tipo: Observadora
+ * Objetivo: Procesar los comandos leídos del archivo de entrada
  * Entrada: El número de comando, el comando del proceso a realizar, los 4 parámetros que puede tener un comando y la lista en la que se realizarán los comandos
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
  * Postcondición: Todas las funciones de los commandos se realizan correctamente
@@ -227,7 +234,8 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
 }
 
 //______________________________________________________________________________________________________________________
-/* Objetivo: Leer los comandos del archivo de entrada
+/* Tipo: Observadora
+ * Objetivo: Leer los comandos del archivo de entrada
  * Entrada: El nombre del archivo de entrada y la lista en la que se realizarán los comandos
  * Precondición: La lista debe estar inicializada por el createEmptyList (se encuentra en la función main)
  * Postcondición: Todos los comandos del archivo se realizan correctamente
