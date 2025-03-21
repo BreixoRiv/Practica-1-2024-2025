@@ -46,7 +46,7 @@ Nintendo         2    59.50    29.75
 Sega             2   270.00   135.00
 ********************
 09 D: console console2
-* Delete: console  seller  brand sega price 0.00 bids -2073441220
+* Delete: console console2 seller user1 brand sega price 120.00 bids 0
 ********************
 10 S
 Console console1 seller user1 brand sega price 150.00 bids 0
